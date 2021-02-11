@@ -93,3 +93,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Configura as variáveis e arquivos do WordPress. */
 require_once ABSPATH . 'wp-settings.php';
+
+
+set_time_limit(3000);
