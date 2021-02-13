@@ -32,23 +32,25 @@
             text-align: center;
             font-size: 1.5rem;
         }
+        .card-title{
+            margin:10px;
+        }
         .card-img>img{
             border-bottom:solid black 1px;
             max-width:100%;
             max-height:30vh;
             margin-bottom:10px;
         }
-        .card-action > button{
+        .button{
             background-color: #5CBF2A;
-            border-radius: 10px;
+            border-radius: 5px;
             border:solid green 1px;;
             width: 100px;
             height: 30px;
-            margin: 15px;
         }
         a{
             color:#1B2836;
-            font-size:1rem;
+            font-size:1.3rem;
             font-weight:500;
             text-decoration:none;
         }
@@ -82,11 +84,9 @@
                         <h2><?= $value['title']; ?></h2>
                     </div>
                             
-                    <div class="card-action">
-                        <button>
-                            <a href="product.php?id=<?= $value['id'] . "&title=" . $value['title'] ?>#openModal">Ver Mais</a>
-                        </button>
-                    </div>
+                    <a class="button" href="product.php?id=<?= $value['id'] . "&title=" . $value['title'] ?>#openModal">           
+                        Ver mais
+                    </a>
                 </div>    
             </form>  
 

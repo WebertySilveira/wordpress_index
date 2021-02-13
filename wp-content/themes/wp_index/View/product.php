@@ -13,6 +13,7 @@
         -moz-transition: opacity 400ms ease-in;
         transition: opacity 400ms ease-in;
         pointer-events: none;
+        overflow:auto;
     }
     .modal:target {
         opacity: 1;
@@ -40,15 +41,17 @@
         font-size: 1.5rem;
         color: red;
     }
-
     .product{
         display:flex;
         justify-content:center;
         align-items:center;
         flex-direction:column;
     }
-</style>
+    .comment{
+        margin-left:0;
+    }
 
+</style>
 
 <div id="openModal" class="modal">
 
@@ -64,5 +67,50 @@
         <div class="card-title">
             <h2><?= $_GET['title']; ?></h2>
         </div>
+        <br>
+        <br>
+
+
+        <div class="form" action="#">
+            <form action="" method="post">
+                <input type="text" name="name" placeholder="Nome" required>
+                <input type="text" name="comment" placeholder="Comentário" required>
+                <button>Comentar</button>
+            </form>
+        </div>
+
+
+        <br><br><br>
+        <h4>Comentários Recentes</h3>
+        <?php 
+            $id = $_GET['id'];
+            $author = $_POST['name'];
+            $comment = $_POST['comment'];
+
+            if (isset($_POST['name'])) {
+                $this->comments->saveComment($id, $author, $comment); 
+            }
+
+            foreach ($this->comments->readComment($id) as $key => $value) {
+
+        ?>
+        <br><br><br>
+            
+
+            <div class="comment">
+                <h3>
+                    <?= $value['comment_author'];?>
+                    <br>
+                </h3>
+                <p>
+                    <?= $value['comment_content'];?>
+                </p>
+                <br>
+            </div>
+
+        <?php }
+        ?>
+
+
     </div>
 </div>
