@@ -12,5 +12,5 @@
 </style>
 
 <footer class="footer">
-    <h1>Rodapé</h1>
+    <h1>Weberty Silveira | Index Digital </h1>
 </footer>

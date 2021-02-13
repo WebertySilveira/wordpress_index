@@ -12,4 +12,8 @@
             require_once dirname(__DIR__) . "\View\home.php";
         }
 
+        public function product($id){
+            
+        }
+
     }

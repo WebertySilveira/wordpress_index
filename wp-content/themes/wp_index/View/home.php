@@ -23,8 +23,6 @@
             flex-wrap:wrap;
             max-width:100%;
             max-height:50vh;
-            margin: 0 auto;
-            border: 1px solid #ccc;
         }
         .card{
             max-width:50%;
@@ -32,19 +30,27 @@
             margin: 20px;
             border:solid black 1px;
             text-align: center;
-            font-size: 1.5em;
+            font-size: 1.5rem;
         }
         .card-img>img{
-            border:solid black 1px;
+            border-bottom:solid black 1px;
             max-width:100%;
             max-height:30vh;
+            margin-bottom:10px;
         }
         .card-action > button{
             background-color: #5CBF2A;
             border-radius: 10px;
+            border:solid green 1px;;
             width: 100px;
             height: 30px;
             margin: 15px;
+        }
+        a{
+            color:#1B2836;
+            font-size:1rem;
+            font-weight:500;
+            text-decoration:none;
         }
 
         @media only screen and (max-width: 600px) {
@@ -53,14 +59,12 @@
             
         }
     }
-
     </style>
     
 </head>
 <body>
-    
-    <section class="products">
 
+    <section class="products">
         <?php
             foreach ($this->products->readProducts() as $key => $value) {
         ?>
@@ -70,19 +74,33 @@
                 <img src="http://localhost/wordpress_index/wp-content/uploads/2021/02/<?= $value['id'] ?>.png">
             </div>
 
-                
-            <div class="card-info">
-                <div class="card-title">
-                    <h2><?= $value['title']; ?></h2>
-                </div>
-                        
-                <div class="card-action">
-                    <button>Ver mais</button>
-                </div>
-            </div>    
+
+
+            <form action="product.php" method="get">  
+                <div class="card-info">
+                    <div class="card-title">
+                        <h2><?= $value['title']; ?></h2>
+                    </div>
+                            
+                    <div class="card-action">
+                        <button>
+                            <a href="product.php?id=<?= $value['id'] . "&title=" . $value['title'] ?>#openModal">Ver Mais</a>
+                        </button>
+                    </div>
+                </div>    
+            </form>  
+
         </div>
 
-        <?php } ?>
+        <?php
+            if (isset($_GET['id'])) {
+                require_once dirname(__DIR__) . "\View\product.php"; 
+            }
+
+            }
+        ?>
+
+        
         
         <?php require_once dirname(__DIR__) . "\View\\footer.php"; ?>
     </section>
