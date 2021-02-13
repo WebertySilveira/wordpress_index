@@ -1,0 +1,24 @@
+/*
+Theme Name: Wordpress Index Digital
+Theme URI: https://
+Author: Weberty Silveira
+Author URI: https://
+Description: Desafio Backend, Desenvolvedor PHP
+Requires at least: 5.3
+Tested up to: 5.6
+Requires PHP: 5.6
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://
+Text Domain: wp_index
+Tags: desafio_php, index_digital, weberty_silveira
+
+wp_index, (C) 2020
+wp_index is distributed under the terms of the GNU GPL.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
