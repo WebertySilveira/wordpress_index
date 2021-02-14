@@ -1,0 +1,10 @@
+.footer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    bottom:0;
+    height:8vh;
+    width:100%;
+    background-color: rgb(27, 40, 54);
+}
