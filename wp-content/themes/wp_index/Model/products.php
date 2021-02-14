@@ -1,4 +1,5 @@
 <?php
+
     require_once dirname(__DIR__) . "\Model\connection.php";
 
     class Products extends Connection{

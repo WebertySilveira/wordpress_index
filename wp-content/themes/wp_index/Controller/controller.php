@@ -1,4 +1,5 @@
 <?php
+
     require_once dirname(__DIR__) . "\Model\products.php";
     require_once dirname(__DIR__) . "\Model\comments.php";
 
@@ -15,3 +16,4 @@
             require_once dirname(__DIR__) . "\View\home.php";
         }
     }
+    

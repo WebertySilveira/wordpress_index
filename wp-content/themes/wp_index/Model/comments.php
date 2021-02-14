@@ -1,4 +1,5 @@
 <?php
+
     require_once dirname(__DIR__) . "\Model\connection.php";
 
     class Comments extends Connection{
@@ -14,7 +15,11 @@
 
         public function saveComment($id, $author, $comment){
             try {
-                $conn = $this->conn->prepare("INSERT INTO wp_comments (comment_post_ID, comment_author, comment_content) VALUES (:id, :author, :comment)");
+                $conn = $this->conn->prepare(
+                    "INSERT INTO wp_comments (comment_post_ID, comment_author, comment_content)
+                     VALUES (:id, :author, :comment)"
+                );
+                
                 $conn->execute(array(
                     ':id' => $id,
                     ':author' => $author,
@@ -24,7 +29,6 @@
                 die($e->getMessage());
             }
         }
-
 
         public function readComment($id){
             try {
